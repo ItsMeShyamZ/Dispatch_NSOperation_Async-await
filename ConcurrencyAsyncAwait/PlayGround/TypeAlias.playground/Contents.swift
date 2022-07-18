@@ -29,6 +29,30 @@ let ShopingPriceInRupees = yourBasket.TotalCost.toRupee()
 
 var T2 = "Typealias Dic"
 
-typealias productDisctonary = [String:String]
+typealias productDisctonary = [Products:Dollar]
 
-let productDic : productDisctonary = 
+var productDic : productDisctonary = [:]
+productDic["Bag"] = 20
+
+
+var T3 = "Generic"
+
+typealias ProductDictionary<T> = [String : T]
+
+var productList : ProductDictionary<Dollar> = [:]
+
+productList["Chees"] = 0
+
+
+var T4 = "Closures"
+
+typealias buyProducts = (ProductDictionary<Dollar>)->Void
+
+func getProducts(onComplition : @escaping buyProducts){
+
+    onComplition(productList)
+}
+
+getProducts { prod in
+    print("Datas",prod)
+}
